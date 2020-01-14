@@ -18,10 +18,8 @@ private:
 public:
 	rational() { p = q = 0; };
 	rational(int p, int q) {
-		if (q == 0 && p != 0) {
-			string s = "denominator entered incorrectly";
-			throw s;
-		}
+		if (q == 0 && p != 0) 
+			throw exception("denominator entered incorrectly");
 			
 		if (q < 0 && p >0) {
 			q *= -1;
@@ -195,9 +193,9 @@ int main()
 	{
 		rational num5(1, 0);
 	}
-	catch ( string ex)
+	catch (const exception &ex)
 	{
-		cout << ex << endl;
+		cout << ex->what() << endl;
 	}
 
 }
